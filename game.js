@@ -6,6 +6,7 @@ var gamePattern = [];
 var userClickedPattern = [];
 var level = 0;
 var started = false;
+var famPlayers = ["Jimmy", "Katherine", "Yoseline","Heiner","Debbie","SoyMary","Anto","Amanda","Toti","Marvin","Sandra"];
 
 function nextSequence() {
   userClickedPattern = [];
@@ -17,9 +18,12 @@ function nextSequence() {
   playSound(randomChosenColour);
   flashButton(randomChosenColour);
   level++;
+  var player = $("#names option:selected").text();
+  console.log(player);
   $("h1").addClass("hidden");
-  
-  $("h2").removeClass("hidden").text("Nivel " + level);
+  $("select").addClass("hidden");
+  $("label").addClass("hidden");
+  $("h2").removeClass("hidden").text("Nivel " + level + " - " + player );
 }
 
 
@@ -64,7 +68,6 @@ function animatePress(currentColour){
       if(start === true){
         nextSequence();
         start = false;
-
       }
    }  
 
@@ -90,8 +93,10 @@ function animatePress(currentColour){
         $("body").addClass("game-over");
         setTimeout(function() {
           $("body").removeClass("game-over") }, 350);
-          $("h1").removeClass("hidden").text("Has Perdido!!! Total de puntos: " + level+  " - Click aca para reiniciar");
-          $("h2").addClass("hidden");
+          $("h1").removeClass("hidden").text("Perdiste - toca para jugar");
+          $("h2").text("Puntos: " + level*50);
+          $("select").removeClass("hidden");
+          $("label").removeClass("hidden");
           startover();
 
           
@@ -105,7 +110,13 @@ function animatePress(currentColour){
     level = 0;
     gamePattern = [];
     start = false;
-
-
   }
 
+
+  $('#names').empty();
+  $.each(
+    famPlayers, function(i, p) {
+      $('#names').append($('<option></option>').val(p).html(p));
+
+  }
+  );

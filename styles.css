@@ -1,20 +1,39 @@
 body {
   text-align: center;
-  background-color: #011F3F;
+  background-color: rgb(180, 214, 252);
 }
 
 #level-title {
   font-family: 'Press Start 2P', cursive;
-  font-size: 3rem;
-  margin:  5%;
-  color: #FEF2BF;
+  font-size: 2rem;
+  margin:  2%;
+  color: rgb(71, 122, 189);
 }
 
 #level-score {
   font-family: 'Press Start 2P', cursive;
-  font-size: 3rem;
+  font-size: 2rem;
   margin:  2%;
-  color: ghostwhite;
+  color: teal;
+}
+
+#players {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  margin-top: 5%;
+  
+  padding-top: 3%;
+  color: gray;
+}
+
+#names {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  margin-top: 1%;
+  padding: 1%;
+  color: rgb(247, 138, 138);
+  background: none;
+  border: none;
 }
 .container {
   display: block;
@@ -61,3 +80,4 @@ body {
 .hidden {
   visibility: hidden;
 }
+
